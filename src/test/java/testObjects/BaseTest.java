@@ -4,10 +4,7 @@ import drivers.CreateDriver;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.ITestContext;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import org.testng.asserts.Assertion;
 import pageObjects.BasePO;
 import utils.BrowserUtils;
@@ -19,6 +16,19 @@ import javax.xml.bind.annotation.XmlElementDecl;
  * NOTAS: TEST PARA PROBAR QUE LOS WEBDRIVERS ABREN CORRECTAMENTE. INTERNET EXPLORER KOF KOF
  */
 public class BaseTest {
+
+
+    @BeforeClass(alwaysRun = true)
+    protected void testClassSetup() throws Exception{
+        Global_VARS.PLATFORM = System.getProperty("os.name");
+        System.out.println(Global_VARS.PLATFORM);
+    }
+
+    @AfterClass(alwaysRun = true)
+    protected void testClassTeardown() throws Exception{
+
+    }
+
 
     @BeforeTest(alwaysRun = true, enabled = true)
     protected void testSetup() throws Exception {
@@ -36,9 +46,8 @@ public class BaseTest {
      */
     @Test(groups = {"SMOKETEST"}, alwaysRun = true, enabled = true)
     public void tc001_homePage_firefox() throws Exception {
-        String platform = System.getProperty("os.name");
-        System.out.println(platform);
-        CreateDriver.getInstance().setDriver("firefox", platform, Global_VARS.ENVIRONMENT);
+
+        CreateDriver.getInstance().setDriver("firefox", Global_VARS.PLATFORM, Global_VARS.ENVIRONMENT);
         BasePO firefoxHome = new BasePO();
         firefoxHome.loadPage();
        // Assert.assertEquals(firefoxHome.elementExists(), true);
@@ -52,9 +61,8 @@ public class BaseTest {
      */
     @Test(groups = {"SMOKETEST"}, alwaysRun = true, enabled = true)
     public void tc001_homePage_chrome() throws Exception {
-        String platform = System.getProperty("os.name");
-        System.out.println(platform);
-        CreateDriver.getInstance().setDriver("chrome", platform, Global_VARS.ENVIRONMENT);
+
+        CreateDriver.getInstance().setDriver("chrome", Global_VARS.PLATFORM, Global_VARS.ENVIRONMENT);
         BasePO chromeHome = new BasePO();
         chromeHome.loadPage();
         //Assert.assertEquals(chromeHome.elementExists(), true);
@@ -62,11 +70,10 @@ public class BaseTest {
         CreateDriver.getInstance().getDriver().close();
     }
 
-    @Test(groups = {"OMITIR"}, alwaysRun = true, enabled = true)
+    @Test(groups = {"OMITIR"}, alwaysRun = true, enabled = false)
     public void tc001_homePage_internetexplorer() throws Exception {
-        String platform = System.getProperty("os.name");
-        System.out.println(platform);
-        CreateDriver.getInstance().setDriver("internetexplorer", platform, Global_VARS.ENVIRONMENT);
+
+        CreateDriver.getInstance().setDriver("internetexplorer", Global_VARS.PLATFORM, Global_VARS.ENVIRONMENT);
         BasePO ieHome = new BasePO();
         ieHome.loadPage();
        // Assert.assertEquals(ieHome.elementExists(), true);

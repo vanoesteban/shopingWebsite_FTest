@@ -16,7 +16,7 @@ public class Global_VARS {
     public static final String browser_IE = "internet explorer";
     public static final String browser_Edge = "edge";
     public static final String browser_Safari = "safari";
-    public static final String PLATFORM = "Windows 10";
+    public static String PLATFORM = "";
     public static final String ENVIRONMENT = "local";
 
     //titles
@@ -65,4 +65,5 @@ public class Global_VARS {
     public static final int TIMEOUT_ZERO = 0;
     public static final int TIMEOUT_ELEMENT = 10;
     public static final int TIME_PAGEREADYLIMIT = 120;
+
 }

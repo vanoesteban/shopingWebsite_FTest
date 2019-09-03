@@ -109,7 +109,12 @@ public class CreateDriver {
                 caps.setCapability("marionette", true);
 
                 if (enviroment.equalsIgnoreCase("local")) {
+                    if(platform.equalsIgnoreCase("windows 10")){
                     System.setProperty("webdriver.gecko.driver", driverProps.getProperty("gecko.driver.windows.path"));
+                    }
+                    if(platform.equalsIgnoreCase("macos")){
+                        System.setProperty("webdriver.gecko.driver", driverProps.getProperty("gecko.driver.macos.path"));
+                    }
                     webDriver.set(new FirefoxDriver(ffOptions.merge(caps)));
                 }
 
@@ -127,7 +132,12 @@ public class CreateDriver {
                 caps.setCapability("applicationCacheEnabled", false);
 
                 if (enviroment.equalsIgnoreCase("local")) {
-                    System.setProperty("webdriver.chrome.driver", driverProps.getProperty("chrome.driver.windows.path"));
+                    if(platform.equalsIgnoreCase("windows 10")){
+                        System.setProperty("webdriver.chrome.driver", driverProps.getProperty("chrome.driver.windows.path"));
+                    }
+                    if(platform.equalsIgnoreCase("macos")){
+                        System.setProperty("webdriver.chrome.driver", driverProps.getProperty("chrome.driver.macos.path"));
+                    }
                     webDriver.set(new ChromeDriver(chOptions.merge(caps)));
                 }
 

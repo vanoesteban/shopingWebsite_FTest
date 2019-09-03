@@ -29,9 +29,9 @@ public class signInTest {
     @BeforeClass(alwaysRun = true, enabled = true)
     public void testClassSetup(@Optional(Global_VARS.browser_Chrome) String browser, @Optional(Global_VARS.ENVIRONMENT) String enviroment, ITestContext context) throws Exception {
         JSONDataProvider.dataFile = DATA_FILE;
-        String platform = System.getProperty("os.name");
-        System.out.println(platform);
-        CreateDriver.getInstance().setDriver(browser, platform, enviroment);
+        Global_VARS.PLATFORM = System.getProperty("os.name").toLowerCase();
+        System.out.println(Global_VARS.PLATFORM);
+        CreateDriver.getInstance().setDriver(browser, Global_VARS.PLATFORM, enviroment);
     }
 
     @AfterClass(alwaysRun = true, enabled = true)
