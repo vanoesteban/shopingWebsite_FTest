@@ -112,7 +112,7 @@ public class CreateDriver {
                     if(platform.equalsIgnoreCase("Windows 10")){
                     System.setProperty("webdriver.gecko.driver", driverProps.getProperty("gecko.driver.windows.path"));
                     }
-                    if(platform.equalsIgnoreCase("macos")){
+                    if(platform.equalsIgnoreCase("Mac OS X")){
                         System.setProperty("webdriver.gecko.driver", driverProps.getProperty("gecko.driver.macos.path"));
                     }
                     webDriver.set(new FirefoxDriver(ffOptions.merge(caps)));
@@ -135,7 +135,7 @@ public class CreateDriver {
                     if(platform.equalsIgnoreCase("Windows 10")){
                         System.setProperty("webdriver.chrome.driver", driverProps.getProperty("chrome.driver.windows.path"));
                     }
-                    if(platform.equalsIgnoreCase("macos")){
+                    if(platform.equalsIgnoreCase("Mac OS X")){
                         System.setProperty("webdriver.chrome.driver", driverProps.getProperty("chrome.driver.macos.path"));
                     }
                     webDriver.set(new ChromeDriver(chOptions.merge(caps)));
