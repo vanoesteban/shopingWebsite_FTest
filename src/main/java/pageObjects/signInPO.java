@@ -14,9 +14,9 @@ import utils.BrowserUtils;
 public class signInPO<M extends WebElement> extends BasePO<M> {
 
 
-    public signInPO() throws Exception {
-    super();
-
+    public signInPO(WebDriver driver) throws Exception {
+   // super();
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(className = "login")

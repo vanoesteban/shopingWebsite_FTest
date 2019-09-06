@@ -1,9 +1,13 @@
 package testObjects;
 
 import drivers.CreateDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import json.JSONDataProvider;
 import json.extractcreateAccounjson;
 import org.json.simple.JSONObject;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
@@ -24,7 +28,9 @@ public class signInTest {
 
     //local vars
     public static final String DATA_FILE = "src/main/java/json/signInJSON.json";
+    private WebDriver driver;
 
+    /*
     @Parameters({"browser", "enviroment"})
     @BeforeClass(alwaysRun = true, enabled = true)
     public void testClassSetup(@Optional(Global_VARS.browser_Chrome) String browser, @Optional(Global_VARS.ENVIRONMENT) String enviroment, ITestContext context) throws Exception {
@@ -46,6 +52,13 @@ public class signInTest {
     @AfterTest(alwaysRun = true)
     public void testTeardown() throws Exception {
        CreateDriver.getInstance().closeDriver();
+    }*/
+
+    @BeforeClass()
+    public void testClassSetup() {
+        JSONDataProvider.dataFile = DATA_FILE;
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
     }
 
     /**
@@ -60,7 +73,7 @@ public class signInTest {
     public void tc001_signIn(String rowID, String description, JSONObject testData) throws Exception {
         extractcreateAccounjson accountInfo = new extractcreateAccounjson(testData);
 
-        signInPO driverHome = new signInPO();
+        signInPO driverHome = new signInPO(driver);
         driverHome.loadPage();
         driverHome.createAccount(accountInfo.getEmail(), accountInfo.getFirstname(), accountInfo.getLastname(), accountInfo.getPassword(),
                 accountInfo.getCompany(), accountInfo.getAddress(), accountInfo.getAddress2(), accountInfo.getCity(), accountInfo.getZip(),
@@ -83,7 +96,7 @@ public class signInTest {
     public void tc002_signIn(String rowID, String description, JSONObject testData) throws Exception {
         extractcreateAccounjson accountInfo = new extractcreateAccounjson(testData);
 
-        signInPO driverHome = new signInPO();
+        signInPO driverHome = new signInPO(driver);
         driverHome.loadPage();
         Assert.assertEquals(driverHome.getTitle(), Global_VARS.home_Title);
         driverHome.createAccount(accountInfo.getEmail(), accountInfo.getFirstname(), accountInfo.getLastname(), accountInfo.getPassword(),
@@ -102,7 +115,7 @@ public class signInTest {
     @Test(groups = {"SMOKETEST"}, dataProvider = "myData_JSON", dataProviderClass = JSONDataProvider.class, alwaysRun = true, enabled = true)
     public void tc003_signIn(String rowID, String description, JSONObject testData) throws Exception {
 
-        signInPO driverHome = new signInPO();
+        signInPO driverHome = new signInPO(driver);
         driverHome.loadPage();
         Assert.assertEquals(driverHome.getTitle(), Global_VARS.home_Title);
         driverHome.login(testData.get("email").toString(), testData.get("password").toString());
@@ -122,7 +135,7 @@ public class signInTest {
     @Test(groups = {"SMOKETEST"}, dataProvider = "myData_JSON", dataProviderClass = JSONDataProvider.class, alwaysRun = true, enabled = true)
     public void tc004_signIn(String rowID, String description, JSONObject testData) throws Exception {
 
-        signInPO driverHome = new signInPO();
+        signInPO driverHome = new signInPO(driver);
         driverHome.loadPage();
         Assert.assertEquals(driverHome.getTitle(), Global_VARS.home_Title);
         driverHome.loginwitherror(testData.get("email").toString(), testData.get("password").toString());
@@ -141,7 +154,7 @@ public class signInTest {
     @Test(groups = {"OMITIR"}, dataProvider = "myData_JSON", dataProviderClass = JSONDataProvider.class, alwaysRun = true, enabled = true)
     public void tc005_signIn(String rowID, String description, JSONObject testData) throws Exception {
 
-        signInPO driverHome = new signInPO();
+        signInPO driverHome = new signInPO(driver);
         driverHome.loadPage();
         Assert.assertEquals(driverHome.getTitle(), Global_VARS.home_Title);
         driverHome.createAccountExist(testData.get("email").toString());

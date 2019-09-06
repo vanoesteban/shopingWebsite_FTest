@@ -22,23 +22,24 @@
 
     <!--  tests -->
 
-
+<!--
     <test name="Open Website">
-        <!--<parameter name="includePattern" value="" />
-        <parameter name="excludePattern" value="" />-->
+        <parameter name="includePattern" value="" />
+        <parameter name="excludePattern" value="" />
         <classes>
             <class name="testObjects.BaseTest"/>
         </classes>
-    </test>
+    </test> -->
 
+    <!--
     <test name="Testsuite firefox con muchas comillas">
-        <!--<parameter name="includePattern" value="" />
-        <parameter name="excludePattern" value="" />-->
+        <parameter name="includePattern" value="" />
+        <parameter name="excludePattern" value="" />
         <parameter name="browser" value="firefox"></parameter>
         <classes>
             <class name="testObjects.signInTest"/>
         </classes>
-    </test>
+    </test> -->
 
     <test name="Testsuite chrome con muchas comillas">
         <!--<parameter name="includePattern" value="" />
