@@ -12,6 +12,7 @@ import org.testng.asserts.Assertion;
 import pageObjects.BasePO;
 import utils.BrowserUtils;
 import utils.Global_VARS;
+import io.qameta.allure.junit4.DisplayName;
 
 import javax.xml.bind.annotation.XmlElementDecl;
 
@@ -34,6 +35,7 @@ public class BaseTest {
      * Page exists with elemente - not all elementes include - FIREFOX
      * @throws Exception
      */
+    @DisplayName("Human-readable test name")
     @Test(groups = {"SMOKETEST"}, alwaysRun = true, enabled = true)
     public void tc001_homePage_firefox() throws Exception {
         String platform = System.getProperty("os.name");
