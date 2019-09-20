@@ -1,0 +1,157 @@
+{
+  "createAccount_Positive": [
+    {
+      "rowID": "createAccount_Positive.01",
+      "description": "Create user Test - Positive",
+      "email": "tc001@gmail.com",
+      "password": "19731973",
+      "firstname": "Jorge",
+      "lastname": "Esteban",
+      "company": "qa",
+      "address": "Ms Alice Smith Apartment 1c 213 Derrick Street Boston, MA 02130",
+      "address2": "Ms Alice Smith Apartment 1c 213 Derrick Street Boston, MA 02130",
+      "city": "Alabama",
+      "zip": "83000",
+      "additionalinfo": "nothing",
+      "phone": "(555)555-1234",
+      "mobile": "(555)555-1234",
+      "alias": "Home",
+      "error": null
+    },
+    {
+      "rowID": "createAccount_Positive.02",
+      "description": "Create user Test - Positive",
+      "email": "tc002@gmail.com",
+      "password": "19731973",
+      "firstname": "Jorge",
+      "lastname": "Esteban",
+      "company": "qa",
+      "address": "Ms Alice Smith Apartment 1c 213 Derrick Street Boston, MA 02130",
+      "address2": "Ms Alice Smith Apartment 1c 213 Derrick Street Boston, MA 02130",
+      "city": "Alabama",
+      "zip": "83000",
+      "additionalinfo": "nothing",
+      "phone": "(555)555-1234",
+      "mobile": "(555)555-1234",
+      "alias": "Home",
+      "error": null
+    },
+    {
+      "rowID": "createAccount_Positive.01",
+      "description": "Create user Test - Positive",
+      "email": "tc003@gmail.com",
+      "password": "19731973",
+      "firstname": "Jorge",
+      "lastname": "Esteban",
+      "company": "qa",
+      "address": "Ms Alice Smith Apartment 1c 213 Derrick Street Boston, MA 02130",
+      "address2": "Ms Alice Smith Apartment 1c 213 Derrick Street Boston, MA 02130",
+      "city": "Alabama",
+      "zip": "83000",
+      "additionalinfo": "nothing",
+      "phone": "(555)555-1234",
+      "mobile": "(555)555-1234",
+      "alias": "Home",
+      "error": null
+    }
+  ],
+  "createAccount_Negative": [
+    {
+      "rowID": "createAccount_Negative.01",
+      "description": "Create user Test - Negative",
+      "email": "tc002@gmail.com",
+      "password": "$$$$$$$$$$",
+      "firstname": "$$$$$$$$$$",
+      "lastname": "$$$$$$$$$$",
+      "company": "$$$$$$$$$$",
+      "address": "$$$$$$$$$$",
+      "address2": "$$$$$$$$$$",
+      "city": "$$$$$$$$$$",
+      "zip": "$$$$$$$$$$",
+      "additionalinfo": "$$$$$$$$$$",
+      "phone": "$$$$$$$$$$",
+      "mobile": "$$$$$$$$$$",
+      "alias": "$$$$$$$$$$",
+      "error": "Wrong Data"
+    },
+    {
+      "rowID": "createAccount_Negative.02",
+      "description": "Create user Test - Negative",
+      "email": "tc002@gmail.com",
+      "password": "********",
+      "firstname": "********",
+      "lastname": "********",
+      "company": "********",
+      "address": "********",
+      "address2": "********",
+      "city": "********",
+      "zip": "********",
+      "additionalinfo": "********",
+      "phone": "********",
+      "mobile": "********",
+      "alias": "********",
+      "error": "Wrong Data"
+    },
+    {
+      "rowID": "createAccount_Negative.03",
+      "description": "Create user Test - Negative",
+      "email": "tc002@gmail.com",
+      "password": "#########",
+      "firstname": "#########",
+      "lastname": "#########",
+      "company": "#########",
+      "address": "#########",
+      "address2": "#########",
+      "city": "#########",
+      "zip": "#########",
+      "additionalinfo": "#########",
+      "phone": "#########",
+      "mobile": "#########",
+      "alias": "#########",
+      "error": "Wrong Data"
+    }
+  ],
+  "login_Positive": [
+    {
+      "rowID": "login_Positive.01",
+      "description": "Login user - Positive ",
+      "email": "tc001@gmail.com",
+      "password": "19731973",
+      "firstname": "Jorge",
+      "lastname": "Esteban"
+    }
+  ],
+  "login_Negative": [
+    {
+      "rowID": "login_Negative.01",
+      "description": "Login user - Negative ",
+      "email": "tc001@gmail.com",
+      "password": "#########"
+    }
+  ],
+  "createExistentAccount": [
+    {
+      "rowID": "createExistentAccount.01",
+      "description": " Create account - account exists ",
+      "email": "tc001@gmail.com",
+      "password": "#########"
+    }
+  ],
+  "searchQuery": [
+    {
+      "rowID": "searchQuery.01",
+      "description": " Search Query Found ",
+      "query": "dresses"
+    },
+    {
+      "rowID": "searchQuery.02",
+      "description": " Search Query Found ",
+      "query": "t-shirts"
+    },
+    {
+      "rowID": "searchQuery.03",
+      "description": " Search Query Not Found ",
+      "query": "women"
+    }
+  ]
+}

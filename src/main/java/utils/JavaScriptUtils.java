@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 /**
  * Selenium JavaScript Executor Utility Class
@@ -96,4 +97,7 @@ public class JavaScriptUtils {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         return (Boolean) js.executeScript("return JQuery.active ==0");
     }// isAjaxReady
+
+
+
 }

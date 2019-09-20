@@ -2,12 +2,19 @@ package utils;
 
 
 import drivers.CreateDriver;
+import org.apache.tools.ant.taskdefs.Java;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BrowserUtils {
+import java.lang.reflect.Array;
+import java.util.List;
+
+public class Browser {
+
+
 
     public void elementExistConsole(WebElement element, int timer) {
         Boolean result = null;
@@ -96,6 +103,11 @@ public class BrowserUtils {
     }
 
 
+    public static boolean isAjaxReady(WebDriver driver) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        return (Boolean) js.executeScript("return jQuery.active==0");
+    }
+
     public static void isPageReady(WebDriver driver) {
         WebDriverWait pageReady = new WebDriverWait(driver, Global_VARS.TIMEOUT_ELEMENT);
         pageReady.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOfAllElements()));
@@ -115,17 +127,67 @@ public class BrowserUtils {
         }
     }
 
-    public static void dropdown(WebElement element, int index){
+    public static <M extends WebElement>  void dropdown(M element, int index) {
         Select dropdown = new Select(element);
         dropdown.selectByIndex(index);
     }
 
-    public static void write(WebElement element, String keys){
+    public static <M extends WebElement>  void write(M element, String keys) {
         element.clear();
         element.sendKeys(keys);
     }
 
-    public static String extractText(WebElement element){
+    public static <M extends WebElement>  void click(M element) throws Exception {
+        element.click();
+    }
+
+    public static <M extends WebElement> void submit(M element) {
+        element.submit();
+    }
+
+    public static String extractText(WebElement element) {
         return element.getText();
     }
+
+    public static void HoverAndClick(WebElement elementToHover) {
+        Actions action = new Actions(CreateDriver.getInstance().getDriver());
+        action.moveToElement(elementToHover);
+    }
+
+    //TABLES
+    /**
+     * Get element from a table with a tagname, the element attribute and the index
+     * @param idtable
+     * @param tagname
+     * @param attribute
+     * @param index
+     *
+     */
+    public static String elementFromTable(String idtable, String tagname, String attribute, int index){
+        WebElement table = CreateDriver.getInstance().getDriver().findElement(By.id(idtable));
+        List<WebElement> tableElements = table.findElements(By.tagName(tagname));
+        String tableid = tableElements.get(index).getAttribute(attribute);
+        return tableid;
+    }
+
+    public static List<WebElement> elementsFromTable(String locatorTable){
+        WebElement table = CreateDriver.getInstance().getDriver().findElement(By.id(locatorTable));
+        WebElement tableBody = table.findElement(By.tagName("tbody"));
+        List<WebElement> tableTr = tableBody.findElements(By.tagName("tr"));
+        return tableTr;
+    }
+
+
+    //LISTS
+    public static int returnSizeFromList(String listclassname){
+        WebElement list = CreateDriver.getInstance().getDriver().findElement(By.className(listclassname));
+        List<WebElement> listElements = list.findElements(By.className("ajax_block_product"));
+        return listElements.size();
+    }
+
+    //GET ELEMENTS
+    public static WebElement getElementById(String id){
+        return CreateDriver.getInstance().getDriver().findElement(By.id(id));
+    }
+
 }

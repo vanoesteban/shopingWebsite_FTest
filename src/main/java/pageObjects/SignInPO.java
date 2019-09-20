@@ -1,20 +1,15 @@
 package pageObjects;
 
-import drivers.CreateDriver;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import utils.BrowserUtils;
+import utils.Browser;
 
-public class signInPO<M extends WebElement> extends BasePO<M> {
+public class SignInPO<M extends WebElement> extends BasePO<M> {
 
 
-    public signInPO() throws Exception {
+    public SignInPO() throws Exception {
     super();
 
     }
@@ -116,65 +111,55 @@ public class signInPO<M extends WebElement> extends BasePO<M> {
     public M userinfo;
 
     public void createAccount(String email, String firstname, String lastname, String password,String company,String address,String address2,String city,String zip,String other,String phone,String mobile, String alias ) throws Exception{
-        this.signIn.click();
-        this.email_create.sendKeys(email);
-        this.submitcreate.click();
-        BrowserUtils.waitFor(this.firstname, 5);
-
-        this.Mr.click();
-        this.firstname.sendKeys(firstname);
-        this.lastname.sendKeys(lastname);
-        String emailverify = this.email.getText();
-        this.password.sendKeys(password);
-        BrowserUtils.dropdown(this.days, 10);
-        BrowserUtils.dropdown(this.months, 5);
-        BrowserUtils.dropdown(this.years, 25);
-        //this.addressfirstname.sendKeys(firstname);
-        //this.addresslastname.sendKeys(lastname);
-        this.company.sendKeys(company);
-        this.address1.sendKeys(address);
-        this.address2.sendKeys(address2);
-        this.city.sendKeys(city);
-        BrowserUtils.dropdown(this.country, 1);
-        BrowserUtils.dropdown(this.state, 1);
-        this.other.sendKeys(other);
-        this.phone.sendKeys(phone);
-        this.mobile.sendKeys(mobile);
-        this.zip.sendKeys(zip);
-        BrowserUtils.write(this.alias, alias);
-        this.register.click();
-        //Assert.assertEquals(userinfo.getText(), "Jorge Esteban");
+        Browser.click(this.signIn);
+        Browser.write(this.email_create, email);
+        Browser.click(this.submitcreate);
+        Browser.waitFor(this.firstname, 5);
+        Browser.click(this.Mr);
+        Browser.write(this.firstname, firstname);
+        Browser.write(this.lastname, lastname);
+        Browser.write(this.password, password);
+        Browser.dropdown(this.days, 10);
+        Browser.dropdown(this.months, 5);
+        Browser.dropdown(this.years, 25);
+        Browser.write(this.company, company);
+        Browser.write(this.address1, address);
+        Browser.write(this.address2, address2);
+        Browser.write(this.city, city);
+        Browser.dropdown(this.country, 1);
+        Browser.dropdown(this.state, 1);
+        Browser.write(this.other, other);
+        Browser.write(this.phone, phone);
+        Browser.write(this.mobile, mobile);
+        Browser.write(this.zip, zip);
+        Browser.write(this.alias, alias);
+        Browser.click(this.register);
     }
 
     public void createAccountExist(String email) throws Exception{
-        this.signIn.click();
-        this.email_create.sendKeys(email);
-        this.submitcreate.click();
-        BrowserUtils.waitFor(this.alertcreateaccount, 2);
+        Browser.click(this.signIn);
+        Browser.write(this.email_create, email);
+        Browser.click(this.submitcreate);
+        Browser.waitFor(this.alertcreateaccount, 2);
     }
 
     public void login(String email, String password) throws Exception
     {
-        this.signIn.click();
-        this.email.sendKeys(email);
-        this.password.sendKeys(password);
-        this.submitlogin.click();
-        Assert.assertEquals(userinfo.getText(), "Jorge Esteban");
-
+        Browser.click(this.signIn);
+        Browser.write(this.email, email);
+        Browser.write(this.password, password);
+        Browser.click(this.submitlogin);
     }
 
     public void loginwitherror(String email, String password) throws Exception {
-        this.signIn.click();
-        this.email.sendKeys(email);
-        this.password.sendKeys(password);
-        this.submitlogin.click();
-
+        Browser.click(this.signIn);
+        Browser.write(this.email, email);
+        Browser.write(this.password, password);
+        Browser.click(this.submitlogin);
     }
 
-    public void logout(){
-        logout.click();
+    public void logout() throws Exception{
+        Browser.click(this.logout);
     }
-
-
 }
 

@@ -23,10 +23,25 @@ public class Global_VARS {
     public static final String home_Title = "My Store";
     public static final String login_Title = "My account - My Store";
 
-    //error labels
-    public static final String emailRegitered = "An account using this email address has already been registered. Please enter a valid password or request a new one.";
-    public static final String autentFailed = "There is 1 error\n" + "Authentication failed.";
-    public static final String createaccountFailedwrongdata = "There are 7 errors\n" +
+    //assert labels
+    public static final String assertCreateExistentAccount = "An account using this email address has already been registered. Please enter a valid password or request a new one.";
+    public static final String assertloginNegative = "There is 1 error\n" + "Authentication failed.";
+    public static final String assertAccountNegative1="There are 9 errors\n" +
+            "lastname is invalid.\n" +
+            "firstname is invalid.\n" +
+            "address1 is invalid.\n" +
+            "address2 is invalid.\n" +
+            "postcode is invalid.\n" +
+            "city is invalid.\n" +
+            "phone is invalid.\n" +
+            "phone_mobile is invalid.\n" +
+            "The Zip/Postal code you've entered is invalid. It must follow this format: 00000";
+    public static final String assertAccountNegative2="There are 4 errors\n" +
+            "postcode is invalid.\n" +
+            "phone is invalid.\n" +
+            "phone_mobile is invalid.\n" +
+            "The Zip/Postal code you've entered is invalid. It must follow this format: 00000";
+    public static final String assertAccountNegative3 = "There are 7 errors\n" +
             "lastname is invalid.\n" +
             "firstname is invalid.\n" +
             "postcode is invalid.\n" +
@@ -34,7 +49,9 @@ public class Global_VARS {
             "phone is invalid.\n" +
             "phone_mobile is invalid.\n" +
             "The Zip/Postal code you've entered is invalid. It must follow this format: 00000";
-
+    public static final String assertProductInCart = "Your shopping cart contains:";
+    public static final String assertEmptyCart = "Your shopping cart is empty.";
+    public static final String assertNotFoundSearch = "No results were found for your search";
 
     //mobile default
     public static final String BROWSER_Mobile = "safari";
@@ -46,7 +63,6 @@ public class Global_VARS {
     // suite folder defaults
     public static String SUITE_NAME = null;
     public static final String TARGET_URL = "http://automationpractice.com/index.php";
-    public static final String LOGIN_URL = "http://automationpractice.com/index.php?controller=authentication&back=my-account#account-creation";
     public static String propFile = "selenium.properties";
     public static final String SE_PROPS = new File(propFile).getAbsolutePath();
 
@@ -58,12 +74,12 @@ public class Global_VARS {
     public static final String REPORT_CONFIG_FILE = "src/main/java/com/framework/ux/utils/chapter10/extent-config.xml";
     public static final String TEST_PROPS_PATH = "properties/testenviroment.properties";
 
-
     // suite timeout defaults
     public static final int TIMEOUT_MINUTE = 60;
     public static final int TIMEOUT_SECOND = 1;
     public static final int TIMEOUT_ZERO = 0;
     public static final int TIMEOUT_ELEMENT = 10;
     public static final int TIME_PAGEREADYLIMIT = 120;
+
 
 }

@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 
-<suite name="shopinWebsite_Test_Suite" preserve-order="true" parallel="classes" thread-count="4">
+<suite name="shopinWebsite_Test_Suite" preserve-order="true" parallel="classes" thread-count="2">
 
 
     <!--  test groups -->
@@ -15,60 +15,71 @@
 
     <!--  test listeners -->
 
-
     <!--  suite parameters -->
     <parameter name="environment" value="local"/>
     <parameter name="platform" value="Windows 10"/>
 
-    <!--  tests -->
-
-
-    <test name="Open Website">
-        <parameter name="includePattern" value="" />
-        <parameter name="excludePattern" value="" />
-        <parameter name="browser" value="firefox"></parameter>
-        <classes>
-            <class name="testObjects.BaseTest"/>
-        </classes>
-    </test>
-
-    <test name="Open Website">
-        <parameter name="includePattern" value="" />
-        <parameter name="excludePattern" value="" />
+<!-- Test Chrome -->
+    <test name="Load Home Page Chrome">
         <parameter name="browser" value="chrome"></parameter>
         <classes>
-            <class name="testObjects.BaseTest"/>
+            <class name="testObjects.HomeTest"/>
         </classes>
     </test>
 
-    <!--
-    <test name="Testsuite firefox con muchas comillas">
-        <parameter name="includePattern" value="" />
-        <parameter name="excludePattern" value="" />
-        <parameter name="browser" value="firefox"></parameter>
-        <classes>
-            <class name="testObjects.signInTest"/>
-        </classes>
-    </test> -->
-
-    <!--
-    <test name="Testsuite chrome con muchas comillas">
-        <parameter name="includePattern" value="" />
-        <parameter name="excludePattern" value="" />
+    <test name="Test signin with chrome">
+        <parameter name="includePattern" value=""/>
+        <parameter name="excludePattern" value=""/>
         <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name="testObjects.signInTest"/>
         </classes>
-    </test> -->
+    </test>
 
-    <!--<test name="Testsuite internet explorer con muchas comillas">
-        <parameter name="includePattern" value="" />
-        <parameter name="excludePattern" value="" />
-    <parameter name="browser" value="internet explorer"></parameter>
-     <classes>
-         <class name="testObjects.signInTest"/>
-     </classes>
- </test> -->
+    <test name="Test cart with chrome">
+        <parameter name="includePattern" value=""/>
+        <parameter name="excludePattern" value=""/>
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="testObjects.cartTest"/>
+        </classes>
+    </test>
 
+    <test name="Search with chrome">
+        <parameter name="includePattern" value=""/>
+        <parameter name="excludePattern" value=""/>
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="testObjects.SearchTest"/>
+        </classes>
+    </test>
+
+<!--  tests Firefox
+    <test name="Load Home Page Firefox">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="testObjects.HomeTest"/>
+        </classes>
+    </test>
+
+    <test name="Test signin with firefox">
+        <parameter name="includePattern" value=""/>
+        <parameter name="excludePattern" value=""/>
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="testObjects.signInTest"/>
+        </classes>
+    </test>
+
+
+    <test name="Test cart with firefox">
+        <parameter name="includePattern" value=""/>
+        <parameter name="excludePattern" value=""/>
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="testObjects.cartTest"/>
+        </classes>
+    </test>
+-->
 
 </suite>
