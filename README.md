@@ -1,10 +1,9 @@
 # shopingWebsite_FTest
 
-Basic Practice for selenium java framework.
+Basic Practice for selenium java framework, Page Factory, Maven, Testng
 
 Installing prerequisites
 - Chrome Browser
-- Firefox Browser
 - JDK installed
 - IntellIJ IDEA
 
