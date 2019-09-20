@@ -1,6 +1,7 @@
 # shopingWebsite_FTest
 
 Basic Practice for selenium java framework, Page Factory, Maven, Testng
+Working on Windows 10
 
 Installing prerequisites
 - Chrome Browser
