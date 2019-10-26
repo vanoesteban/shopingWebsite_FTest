@@ -3,6 +3,7 @@ package pageObjects;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
+import utils.Browser;
 
 public class HomePO<M extends WebElement> extends BasePO<M> {
     //local variables
@@ -10,7 +11,10 @@ public class HomePO<M extends WebElement> extends BasePO<M> {
     public String pageTitle;
 
 
-    //constructor
+    /**
+     *
+     * @throws Exception
+     */
     public HomePO() throws Exception {
         super();
     }
@@ -80,5 +84,16 @@ public class HomePO<M extends WebElement> extends BasePO<M> {
     @FindBy(linkText = "T-shirts")
     @CacheLookup
     protected M tshirts_btn;
+
+    @FindBy(css = "#header > div.nav > div > div > nav > span > strong")
+    protected M callusNow;
+
+    public M getContactus() {
+        return contactus;
+    }
+
+    public String callUsNow(){
+        return Browser.extractText(callusNow);
+    }
 
 }

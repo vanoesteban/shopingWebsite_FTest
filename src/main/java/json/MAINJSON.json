@@ -151,7 +151,64 @@
     {
       "rowID": "searchQuery.03",
       "description": " Search Query Not Found ",
-      "query": "women"
+      "query": "short"
     }
-  ]
+  ],
+  "searchQuery_Wrong": [
+    {
+      "rowID": "searchQuery_Wrong.01",
+      "description": " Search Query Found ",
+      "query": "automobile"
+    },
+    {
+      "rowID": "searchQuery_Wrong.02",
+      "description": " Search Query Found ",
+      "query": "locomotive"
+    },
+    {
+      "rowID": "searchQuery_Wrong.03",
+      "description": " Search Query Not Found ",
+      "query": "bicycle"
+    }
+  ],
+  "contactUsTest_right": [
+    {
+      "rowID": "contactUsTest_right.01",
+      "description": "contactUs no send",
+      "index": 1,
+      "email": "tc001@gmail.com",
+      "orderReference" : "order123",
+      "message" : "problems with orden 1",
+      "attachFile": "C:\\upload1.txt"
+    },
+    {
+      "rowID": "contactUsTest_right.02",
+      "description": "contactUs no send",
+      "index": 1,
+      "email": "tc001@gmail.com",
+      "orderReference" : "order123",
+      "message" : "problems with orden 2",
+      "attachFile": "C:\\upload2.txt"
+    },
+    {
+      "rowID": "contactUsTest_right.03",
+      "description": "contactUs no send",
+      "index": 2,
+      "email": "tc001@gmail.com",
+      "orderReference" : "order123",
+      "message" : "problems with orden 3",
+      "attachFile": "C:\\upload3.txt"
+    }
+  ],
+  "contactUsTest_wrong": [
+    {
+      "rowID": "contactUsTest_wrong.01",
+      "description": "contactUs no send",
+      "index": 1,
+      "email": "******",
+      "orderReference" : "******",
+      "message" : "********",
+      "attachFile": "C:\\upload3.txt"
+    }
+    ]
 }

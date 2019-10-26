@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 import pageObjects.SignInPO;
 import utils.Browser;
+import utils.Global_Asserts;
 import utils.Global_VARS;
 
 public class signInTest extends BaseTest {
@@ -52,13 +53,13 @@ public class signInTest extends BaseTest {
                 accountInfo.getAdditionalinfo(), accountInfo.getPhone(), accountInfo.getMobile(), accountInfo.getAlias());
         switch (rowID) {
             case "createAccount_Negative.01":
-                Assert.assertEquals(driversignIn.alertlogin.getText(), Global_VARS.assertAccountNegative1);
+                Assert.assertEquals(driversignIn.alertlogin.getText(), Global_Asserts.assertAccountNegative1);
                 break;
             case "createAccount_Negative.02":
-                Assert.assertEquals(driversignIn.alertlogin.getText(), Global_VARS.assertAccountNegative2);
+                Assert.assertEquals(driversignIn.alertlogin.getText(), Global_Asserts.assertAccountNegative2);
                 break;
             case "createAccount_Negative.03":
-                Assert.assertEquals(driversignIn.alertlogin.getText(), Global_VARS.assertAccountNegative3);
+                Assert.assertEquals(driversignIn.alertlogin.getText(), Global_Asserts.assertAccountNegative3);
                 break;
         }
     }
@@ -98,7 +99,7 @@ public class signInTest extends BaseTest {
         Assert.assertEquals(driversignIn.getTitle(), Global_VARS.home_Title);
         driversignIn.login(testData.get("email").toString(), testData.get("password").toString());
         Browser.waitFor(driversignIn.alertlogin, 2);
-        Assert.assertEquals(driversignIn.alertlogin.getText(), Global_VARS.assertloginNegative);
+        Assert.assertEquals(driversignIn.alertlogin.getText(), Global_Asserts.assertloginNegative);
 
     }
 
@@ -116,6 +117,6 @@ public class signInTest extends BaseTest {
         driversignIn.loadPage();
         Assert.assertEquals(driversignIn.getTitle(), Global_VARS.home_Title);
         driversignIn.createAccountExist(testData.get("email").toString());
-        Assert.assertEquals(driversignIn.alertcreateaccount.getText(), Global_VARS.assertCreateExistentAccount);
+        Assert.assertEquals(driversignIn.alertcreateaccount.getText(), Global_Asserts.assertCreateExistentAccount);
     }
 }

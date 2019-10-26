@@ -3,6 +3,7 @@ package testObjects;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import pageObjects.HomePO;
+import utils.Global_Asserts;
 import utils.Global_VARS;
 
 /**
@@ -20,6 +21,13 @@ public class HomeTest extends BaseTest{
         HomePO driverHome = new HomePO();
         driverHome.loadPage();
         Assert.assertEquals(driverHome.getTitle(), Global_VARS.home_Title);
+    }
+
+    @Test(groups = {"SMOKETEST"}, alwaysRun = true, enabled = true)
+    public void callUsNow() throws Exception{
+        HomePO driverHome = new HomePO();
+        driverHome.loadPage();
+        Assert.assertEquals(driverHome.callUsNow(), Global_Asserts.assertcallUsNow);
     }
 
 }
